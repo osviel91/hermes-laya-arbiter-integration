@@ -15,7 +15,6 @@ REQUIRED = [
     ROOT / "docs/security-and-confidence.md",
     ROOT / "examples/hermes-mcp-server.yaml",
     ROOT / "experiments/results.json",
-    ROOT / "linkedin/article.md",
     ROOT / "skills/bounded-decision-arbiter/SKILL.md",
 ]
 SECRET_PATTERNS = [

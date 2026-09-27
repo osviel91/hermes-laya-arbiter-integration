@@ -12,7 +12,6 @@ Este repositorio documenta una arquitectura en la que Hermes mantiene el razonam
 - Guía de uso de la API `/v1/systemone`.
 - Política conservadora de confianza y seguridad.
 - Casos de uso y resultados experimentales.
-- Borrador de artículo para LinkedIn.
 - Scripts de validación sin secretos.
 
 ## Arquitectura
@@ -115,10 +114,8 @@ actuar solo si la política y el riesgo lo permiten
 ├── scripts/
 │   ├── run_arbiter_experiment.py
 │   └── validate_repository.py
-├── skills/
-│   └── bounded-decision-arbiter/SKILL.md
-└── linkedin/
-    └── article.md
+└── skills/
+    └── bounded-decision-arbiter/SKILL.md
 ```
 
 ## Licencia y alcance
