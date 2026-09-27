@@ -1,0 +1,154 @@
+{
+  "date": "2026-09-27",
+  "endpoint": "https://laya.osviel.duckdns.org",
+  "model": "auto",
+  "tools_discovered": [
+    "arbiter_classify",
+    "arbiter_score",
+    "arbiter_check",
+    "arbiter_gate",
+    "arbiter_decide"
+  ],
+  "results": [
+    {
+      "id": "oom-operational-response",
+      "tool": "arbiter_classify",
+      "content": [
+        {
+          "type": "text",
+          "text": "ignore (p=0.47, confidence 0.05)",
+          "annotations": null,
+          "meta": null
+        }
+      ],
+      "structured": {
+        "choice": "ignore",
+        "probabilities": {
+          "ignore": 0.4702,
+          "investigate": 0.329,
+          "escalate": 0.2008
+        },
+        "confidence": 0.0507,
+        "checkpoint": "english",
+        "latency_ms": 244.02
+      }
+    },
+    {
+      "id": "spanish-severity",
+      "tool": "arbiter_classify",
+      "content": [
+        {
+          "type": "text",
+          "text": "medium (p=0.50, confidence 0.12)",
+          "annotations": null,
+          "meta": null
+        }
+      ],
+      "structured": {
+        "choice": "medium",
+        "probabilities": {
+          "low": 0.382,
+          "medium": 0.5001,
+          "high": 0.1179
+        },
+        "confidence": 0.1205,
+        "checkpoint": "multilingual",
+        "latency_ms": 204.07
+      }
+    },
+    {
+      "id": "incident-check",
+      "tool": "arbiter_check",
+      "content": [
+        {
+          "type": "text",
+          "text": "0.10 (likely false)",
+          "annotations": null,
+          "meta": null
+        }
+      ],
+      "structured": {
+        "probability": 0.0968,
+        "confidence": 0.9032,
+        "checkpoint": "english",
+        "latency_ms": 53.27
+      }
+    },
+    {
+      "id": "batched-incident-decisions",
+      "tool": "arbiter_decide",
+      "content": [
+        {
+          "type": "text",
+          "text": "severity=medium, needs_human=0.10, action=ignore",
+          "annotations": null,
+          "meta": null
+        }
+      ],
+      "structured": {
+        "answers": {
+          "severity": {
+            "type": "choice",
+            "choice": "medium",
+            "probabilities": {
+              "low": 0.2149,
+              "medium": 0.6666,
+              "high": 0.1185
+            },
+            "confidence": 0.2231,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "needs_human": {
+            "type": "noul",
+            "noul": 0.0968,
+            "confidence": 0.9032,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "action": {
+            "type": "choice",
+            "choice": "ignore",
+            "probabilities": {
+              "ignore": 0.4839,
+              "investigate": 0.3299,
+              "escalate": 0.1862
+            },
+            "confidence": 0.0624,
+            "action": {
+              "act_probability": 1.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 153,
+          "output_tokens": 0
+        },
+        "checkpoint": "english",
+        "latency_ms": 102.4
+      }
+    }
+  ],
+  "hermes_agent_run": {
+    "profile": "crm-analyzer",
+    "command": "hermes -p crm-analyzer chat -q '<redacted prompt>'",
+    "tool_used": "arbiter_classify",
+    "choice": "ignore",
+    "probabilities": {
+      "ignore": 0.4702,
+      "investigate": 0.329,
+      "escalate": 0.2008
+    },
+    "confidence": 0.0507,
+    "latency_ms": 211.88,
+    "automatable": false,
+    "note": "The agent correctly treated the low-confidence result as advisory rather than sufficient for automation."
+  },
+  "limitations": [
+    "Small, illustrative sample; not a statistical evaluation.",
+    "Latency includes the remote service and bridge path.",
+    "Results should not be interpreted as authorization for risky actions."
+  ]
+}

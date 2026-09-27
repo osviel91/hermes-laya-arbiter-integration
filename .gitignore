@@ -1,0 +1,20 @@
+# Secrets and local environment
+.env
+.env.*
+*.secret
+secrets/
+
+# Local Python artifacts
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Experiment/runtime output
+experiments/raw/
+*.log
+.DS_Store
+
+# Editors
+.vscode/
+.idea/

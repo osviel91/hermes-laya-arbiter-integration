@@ -1,0 +1,12 @@
+# Template only. Do not paste secrets into this file.
+# Prefer `hermes config set` as documented in docs/hermes-mcp-configuration.md.
+mcp_servers:
+  arbiter:
+    command: "/absolute/path/to/hermes/python"
+    args:
+      - "/absolute/path/to/arbiter/integrations/mcp/arbiter_mcp.py"
+    env:
+      ARBITER_URL: "https://laya.osviel.duckdns.org"
+      ARBITER_MODEL: "auto"
+      ARBITER_API_KEY: "${LAYA_API_KEY}"
+    enabled: true
